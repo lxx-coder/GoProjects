@@ -2,6 +2,7 @@ package goroutineTest
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -26,3 +27,20 @@ func Routine(){
 	}()
 	<-time.After(time.Second * 5)
 }
+
+func calc(a int, b int, n *sync.WaitGroup) {
+	c := a + b
+	fmt.Println("%d + %d = %d", a,b,c)
+	defer n.Done()
+}
+
+func Calc() {
+	var go_sync sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		go_sync.Add(1)
+		go calc(i, i+1, &go_sync)
+	}
+	go_sync.Wait()
+}
+
+

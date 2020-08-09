@@ -2,6 +2,7 @@ package httpTest
 
 import (
 	"crypto/sha1"
+	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/julienschmidt/httprouter"
@@ -40,6 +41,17 @@ func doWeixinConnect(resp http.ResponseWriter, req *http.Request) {
 		fmt.Fprintf(resp, echostr[0])
 	}
 
+}
+
+func Body(w http.ResponseWriter,r *http.Request) {
+	h := r.Header
+	bh, _ := json.MarshalIndent(h, "","    ")
+	strh := string(bh)
+
+	length := r.ContentLength
+	body := make([]byte, length)
+	r.Body.Read(body)
+	fmt.Fprintln(w, strh + "\n" + string(body))
 }
 
 func Start() {

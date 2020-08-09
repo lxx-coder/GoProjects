@@ -133,21 +133,21 @@ type ListNodeTmp struct {
     Next  *ListNodeTmp
 }
 
-func findOrder(numCourses int, prerequisites [][]int) []int {
-    var order []int
-    var depend []int
-    var depend []
-    for i := 0;i < len(prerequisites); i++ {
-
-        tmp1 := &ListNodeTmp{
-            Val:  prerequisites[i][1],
-            Used: false,
-            Next: nil,
-        }
-        tmp2 := &ListNodeTmp{
-            Val: prerequisites[i][0],
-            Used: false,
-            Next: tmp1,
-        }
-    }
-}
+//func findOrder(numCourses int, prerequisites [][]int) []int {
+//    var order []int
+//    var depend []int
+//    var depend []
+//    for i := 0;i < len(prerequisites); i++ {
+//
+//        tmp1 := &ListNodeTmp{
+//            Val:  prerequisites[i][1],
+//            Used: false,
+//            Next: nil,
+//        }
+//        tmp2 := &ListNodeTmp{
+//            Val: prerequisites[i][0],
+//            Used: false,
+//            Next: tmp1,
+//        }
+//    }
+//}

@@ -12,6 +12,7 @@ type User struct {
 }
 
 func ConnectTable() {
+    
     orm.RegisterDataBase("default", "mysql","root:xx921226@tcp(localhost:3306)/test?charset=utf8",30)
 
     // register model

@@ -5,5 +5,6 @@ package classTest
 
 type Women struct {
 	Person
+	//Name string
 	Sex string
 }
